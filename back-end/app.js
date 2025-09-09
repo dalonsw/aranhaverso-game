@@ -27,7 +27,7 @@ app.use('/player', player);
 app.get('/admin', (req, res) => {
     const senha = req.query.senha;
     if (senha === process.env.ADMIN_PASSWORD) {
-        res.sendFile('/public/admin.html', { root: '.' });
+        res.sendFile('./public/admin.html', { root: '.' });
     } else {
         res.status(401).send('Senha incorreta');
     }
