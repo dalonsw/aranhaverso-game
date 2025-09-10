@@ -49,7 +49,7 @@ img#spider-gif {
     max-width: 600px;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'the-amazing-spider-man';
     color: #ff8800;
     text-align: center;
@@ -117,6 +117,14 @@ button {
     transition: background-color 0.3s ease;
 }
 
+button:hover {
+    background-color: #e67600;
+}
+
+button:active {
+    background-color: #cc6600;
+}
+
 .usuario {
     width: 20vw;
     margin-top: 20px;
@@ -137,16 +145,30 @@ button {
 
 #players-list {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     margin-bottom: 10px;
     flex-wrap: wrap;
     max-width: 80vw;
     justify-content: center;
+    max-height: 80vh;
+    overflow: auto;
+}
+
+#players-list .player {
+    display: flex;
+    width: 7vw;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+    max-width: 150px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #players-list img {
-    width: 6vw;
-    min-width: 100px;
+    width: 5vw;
+    min-width: 80px;
     height: auto;
     border-radius: 50%;
 }

@@ -6,6 +6,7 @@ router.get('/', playerController.getAllPlayers);
 router.get('/:id', playerController.getPlayerById);
 
 router.post('/', playerController.createPlayer);
-router.post('/:id/alterar-pontos', playerController.alterarPontos);
+router.post('/:id/adicionar-pontos', playerController.alterarPontos);
+router.post('/:id/perder-vida', playerController.tirarVida);
 
 export default router;

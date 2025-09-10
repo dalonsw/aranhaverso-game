@@ -5,8 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>Admin Game</title>
+    <style>
+        #players-list {
+            margin: 20px;
+            border: 2px solid #00000000;
+            justify-content: start;
+        }
+        #players-list .player {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 100px;
+            background-color: #ccc;
+        }
+        #players-list img {
+            min-width: 50px;
+        }
+    </style>
 </head>
 <body>
+    <main>
+        <h2>JOGADORES:</h2>
+        <div id="players-list"></div>
+        <button id="start-game-button">Começar jogo</button>
+    </main>
     <script src="../src/js/admin.js"></script>
+    <script src="../src/js/adminGame.js"></script>
 </body>
 </html>

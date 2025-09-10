@@ -16,8 +16,8 @@ export async function initDB() {
             name TEXT NOT NULL,
             score INTEGER DEFAULT 0,
             profile_picture TEXT NOT NULL,
-            isAlive INTEGER DEFAULT 1,
-            lives INTEGER DEFAULT 3
+            lifes INTEGER DEFAULT 3,
+            total_score INTEGER DEFAULT 0
         )
     `);
     return db;

@@ -1,12 +1,13 @@
 const icons = "../src/images/user-icons/";
 const userIcon = document.getElementById('user-icon');
 const iniciarBtn = document.getElementById('start-button');
+const host = 'http://localhost:3000/';
 
 async function criarPlayer() {
     const name = document.getElementById('username').value;
     const profile_picture = userIcon.src.split('/').pop().split('.')[0];
 
-    const response = await fetch('http://localhost:3000/player', {
+    const response = await fetch(`${host}player`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -16,7 +17,7 @@ async function criarPlayer() {
     const data = await response.json();
     const playerId = data.id;
     localStorage.setItem('playerId', playerId);
-    window.location.href = 'game.html';
+    window.location.href = 'fila.html';
 }
 
 const randomIcon = () => {
@@ -32,16 +33,20 @@ userIcon.addEventListener('click', () => {
     randomIcon();
 });
 
-window.onload = randomIcon;
-
 iniciarBtn.addEventListener('click', (event) => {
     const playerId = localStorage.getItem('playerId');
     if (playerId == null) {
         event.preventDefault();
         criarPlayer();
     } else {
-        window.location.href = 'game.html';
+        window.location.href = 'fila.html';
     }
 });
 
-console.log(localStorage.getItem('playerId'));
+window.onload = () => {
+    const playerId = localStorage.getItem('playerId');
+    if (playerId != null) {
+        window.location.href = 'fila.html';
+    }
+    randomIcon();
+};

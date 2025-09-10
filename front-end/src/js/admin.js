@@ -8,8 +8,6 @@ async function entrarAdminPage() {
             localStorage.removeItem('senhaAdmin');
             throw new Error('Senha incorreta');
         } else {
-            const texto = await response.text();
-            document.body.innerHTML = texto;
             localStorage.setItem('senhaAdmin', senha);
             console.log('Acesso concedido!');
         }

@@ -30,9 +30,25 @@ const alterarPontos = async (id, pontos) => {
     throw new Error('Jogador não encontrado');
 }
 
+const tirarVida = async (id) => {
+    const database = await db.openDB();
+    const player = await getPlayerById(id);
+    if (player) {
+        if (player.lifes > 0) {
+            const lifes = player.lifes - 1;
+            await database.run('UPDATE players SET lifes = ? WHERE id = ?', [lifes, id]);
+            return lifes;
+        } else {
+            return 0;
+        }
+    }
+    throw new Error('Jogador não encontrado');
+}
+
 export default {
     createPlayer,
     getPlayers,
     getPlayerById,
-    alterarPontos
+    alterarPontos,
+    tirarVida
 };

@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import player from './src/routes/playerRoutes.js';
+import game from './src/routes/gameRoutes.js';
 import db from './src/db/db.js';
 import dotenv from 'dotenv';
 
@@ -24,15 +25,22 @@ db.openDB().then(() => {
 
 // Rotas
 app.use('/player', player);
+app.use('/iniciar-jogo', game);
+
+// Rota para verificar a senha de admin
 app.get('/admin', (req, res) => {
     const senha = req.query.senha;
     if (senha === process.env.ADMIN_PASSWORD) {
-        res.sendFile('./public/admin.html', { root: '.' });
+        res.sendStatus(200);
     } else {
         res.status(401).send('Senha incorreta');
     }
 });
 
+app.get('/respostas', (req, res) => {
+    res.sendFile('./src/data/respostas.json', { root: '.' });
+});
+
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on ${PORT}`);
 });

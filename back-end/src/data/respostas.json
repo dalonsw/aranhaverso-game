@@ -1,0 +1,27 @@
+{
+  "fases": {
+    "1": {
+      "respostas": [
+        "nome",
+        "ligar",
+        "laser"
+      ]
+    },
+    "4": {
+      "respostas": [
+        "HomemAranha",
+        "venom_blast",
+        "miles"
+      ]
+    },
+    "7": {
+      "respostas": [
+        "__poder",
+        "simbiose",
+        "hospedeiro",
+        "poder_hospedeiro",
+        "Simbionte()"
+      ]
+    }
+  }
+}

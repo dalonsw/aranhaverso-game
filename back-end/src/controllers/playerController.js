@@ -54,9 +54,24 @@ const alterarPontos = async (req, res) => {
     }
 };
 
+const tirarVida = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const newScore = await playerModel.tirarVida(id);
+        res.status(200).json({ id, newScore });
+    } catch (error) {
+        if (error.message === 'Jogador não encontrado') {
+            res.status(404).json({ error: 'Jogador não encontrado' });
+        } else {
+            res.status(500).json({ error: 'Erro ao alterar pontos' });
+        }
+    }
+}
+
 export default {
     getAllPlayers,
     getPlayerById,
     createPlayer,
-    alterarPontos
+    alterarPontos,
+    tirarVida
 };
