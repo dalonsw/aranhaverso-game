@@ -1,5 +1,4 @@
 const startButton = document.getElementById('start-game-button');
-host = 'http://localhost:3000/';
 
 async function carregarJogadoresAdmin() {
     fetch(`${host}player`)

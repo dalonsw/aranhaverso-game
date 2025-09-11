@@ -1,7 +1,6 @@
 const icons = "../src/images/user-icons/";
 const userIcon = document.getElementById('user-icon');
 const iniciarBtn = document.getElementById('start-button');
-const host = 'http://localhost:3000/';
 
 async function criarPlayer() {
     const name = document.getElementById('username').value;
