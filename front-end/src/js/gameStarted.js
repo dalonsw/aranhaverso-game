@@ -1,5 +1,4 @@
 const playerId = localStorage.getItem('playerId');
-const host = 'http://localhost:3000/';
 
 if (!playerId) {
     window.location.href = '../index.html';

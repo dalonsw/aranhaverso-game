@@ -1,5 +1,4 @@
 const idSalvado = localStorage.getItem('playerId');
-const host = 'http://localhost:3000/';
 
 async function carregarJogadores() {
     fetch(`${host}player`)

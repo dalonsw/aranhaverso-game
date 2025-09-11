@@ -6,7 +6,7 @@ function jogadorLogado() {
 
 async function jogoIniciado() {
     try {
-        const response = await fetch(`http://localhost:3000/iniciar-jogo`);
+        const response = await fetch(`${host}/iniciar-jogo`);
         console.log(response);
         if (response.ok) {
             window.location.href = 'game.html';
